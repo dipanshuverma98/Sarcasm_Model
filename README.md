@@ -7,7 +7,7 @@ This project implements a sarcasm detection model using a Bidirectional Long Sho
 - Uses BiLSTM for sequential text processing.
 - Preprocesses text data using tokenization and padding.
 - Trained on a sarcasm-labeled dataset.
-- Outputs whether sarcasm or not
+- Cheks whether sarcasm or not
 
 ## Installation
 ### Prerequisites
