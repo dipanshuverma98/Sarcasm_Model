@@ -1,7 +1,7 @@
 # Sarcasm Detection Model using BiLSTM
 
 ## Overview
-This project implements a sarcasm detection model using a Bidirectional Long Short-Term Memory (BiLSTM) neural network. The model is trained to classify text as sarcastic or non-sarcastic based on labeled datasets.
+This project implements a sarcasm detection model using a Bidirectional Long Short-Term Memory (BiLSTM) neural network. The model is trained to classify text as sarcastic or non-sarcastic based on labeled datasets..
 
 ## Features
 - Uses BiLSTM for sequential text processing.
