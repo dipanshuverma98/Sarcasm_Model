@@ -1,0 +1,27 @@
+# Model Configuration — BiLSTM Baseline
+# ==========================================
+# Used for ablation study to compare against BERT.
+# Usage: python -m sarcasm.train --config configs/bilstm_config.yaml
+
+model:
+  type: bilstm
+  vocab_size: 30522          # Matches BERT tokenizer vocab (for fair comparison)
+  embed_dim: 100             # GloVe 100d
+  lstm_units: 128
+  max_length: 128
+  dropout: 0.5
+
+data:
+  csv_path: ${DATA_DIR}/sarcasm_dataset.csv
+  train_ratio: 0.70
+  val_ratio: 0.15
+
+training:
+  epochs: 15
+  batch_size: 64
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  warmup_ratio: 0.0          # No warmup needed for LSTM
+  patience: 4
+  seed: 42
+  checkpoint_dir: checkpoints_bilstm

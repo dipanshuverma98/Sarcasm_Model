@@ -1,0 +1,27 @@
+# Model Configuration — BERT Fine-Tuning
+# ==========================================
+# All hyperparameters live here. Never hardcode values in source files.
+# Usage: python -m sarcasm.train --config configs/bert_config.yaml
+
+model:
+  type: bert                        # "bert" or "bilstm"
+  name: bert-base-uncased           # HuggingFace model ID
+  max_length: 128                   # Truncate/pad sequences to this length
+  dropout: 0.3                      # Classifier head dropout
+  freeze_layers: 0                  # Freeze bottom N BERT encoder layers (0 = fine-tune all)
+
+data:
+  csv_path: ${DATA_DIR}/sarcasm_dataset.csv   # Set DATA_DIR env var or replace with absolute path
+  train_ratio: 0.70
+  val_ratio: 0.15
+  # test_ratio is inferred as 1 - train_ratio - val_ratio = 0.15
+
+training:
+  epochs: 10
+  batch_size: 32
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.06                # Fraction of total steps for LR warmup
+  patience: 3                       # Early stopping patience (epochs without val F1 improvement)
+  seed: 42
+  checkpoint_dir: checkpoints
